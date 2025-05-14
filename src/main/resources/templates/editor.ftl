@@ -133,6 +133,7 @@
                     .querySelector(".celda[data-fila='"+i+"'][data-columna='"+j+"']");
                 if (celda) {
                     let pos = i*COLUMNAS+j;
+
                     // valor de la superficie en la posición
                     let vsp = surfaces[pos];
                     // posición de ese valor en el array valsSurfaces
@@ -141,6 +142,16 @@
                         // color en colsSurfaces en esa posición
                         let color = colsSurfaces[pvs];
                         celda.style.backgroundColor = color;
+                    }
+
+                    // valor del elemento en la posición
+                    let vep = elements[pos];
+                    // posición de ese valor en el array valsElements
+                    let pve = valsElements.indexOf(vep);
+                    if (pve >= 0) {
+                        // imagen en imgsElements en esa posición
+                        let imagen = imgsElements[pve];
+                        celda.style.backgroundImage = "url('/img/" + imagen + "')";
                     }
                 }
             }

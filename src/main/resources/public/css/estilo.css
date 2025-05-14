@@ -58,6 +58,10 @@ h1 {
 /*               TABLERO               */
 /***************************************/
 
+div#tablero {
+    padding: 0;
+}
+
 .celda {
     background-color: #fff;
     border: 1px solid #000;

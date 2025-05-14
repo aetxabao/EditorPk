@@ -1,6 +1,6 @@
 INSERT INTO epk_db.mapa
 (orden, nombre, surfaces, elements)
-VALUES ( 2, 'Segundo nivel',
+VALUES ( 3, 'Tercer nivel',
 '4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
