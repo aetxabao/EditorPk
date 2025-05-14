@@ -1,6 +1,6 @@
 -- seleccionar todos los MapaDTO
 SELECT id, orden, nombre
-FROM epk_db.mapa;
+FROM epk_db.mapa ORDER BY orden;
 
 -- seleccionar el MapaDataDTO cuyo id sea uno dado
 SELECT id, orden, nombre, surfaces, elements

@@ -66,6 +66,14 @@ public class MapaDataDTO extends MapaDTO {
         return sb.toString();
     }
 
+    public String surfacesArray() {
+        return toArray(surfaces);
+    }
+
+    public String elementsArray() {
+        return toArray(elements);
+    }
+
     public String toArray(String txt) {
         // 4 4 4
         // 4 0 4
@@ -81,6 +89,16 @@ public class MapaDataDTO extends MapaDTO {
         sb.deleteCharAt(sb.length()-1);
         sb.deleteCharAt(sb.length()-1);
         // '4', '4', '4', '4', '0', '4', '4', '0', '4', '4', '4', '4'
+        return sb.toString();
+    }
+
+    public String toJson(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toJson());
+        sb.deleteCharAt(sb.length()-1);
+        sb.append(",\"surfaces\":").append("\"" + surfaces + "\"");
+        sb.append(",\"elements\":").append("\"" + elements + "\"");
+        sb.append("}");
         return sb.toString();
     }
 

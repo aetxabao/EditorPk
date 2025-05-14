@@ -13,7 +13,9 @@ public class Main {
                     config.staticFiles.add("/public");
                     config.fileRenderer(new JavalinFreemarker());
                 }).start(4444);
+
         app.get("/", EditorController::iniciar);
+        app.get("/seleccionar", EditorController::seleccionar);
 
     }
 }
