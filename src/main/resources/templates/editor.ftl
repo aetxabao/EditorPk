@@ -67,9 +67,10 @@
     <div id="acciones">
         <h2>Acciones</h2>
         <form id="formulario">
+            <input type="hidden" id="idMapa" name="idMapa" value="${mapa.id}">
             <select id="nivel" name="nivel" size="10">
-                <#list mapas as mapa>
-                    <option value="${mapa.id}">${mapa.nombre}</option>
+                <#list mapas as map>
+                    <option value="${map.id}">${map.nombre}</option>
                 </#list>
             </select>
             <div class="barra-horizontal">
@@ -174,6 +175,26 @@
                 }
             });
         });
+
+    document.querySelector('#guardar')
+        .addEventListener('click', (e) => {
+        e.preventDefault();
+        const idMapa = document.getElementById('idMapa').value;
+        fetch("guardar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({idMapa, surfaces, elements})
+        })
+        .then(data => {
+            console.log(data);
+            alert("Datos guardados");
+        })
+        .catch(error => {
+            console.error("Error: " + error.message);
+        });
+    });
 
     document.addEventListener('mouseup', (e) => {
         isMouseDown = false;

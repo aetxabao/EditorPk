@@ -69,6 +69,14 @@ public class EditorDaoMySql implements EditorDao {
         return mapaDataDTO;
     }
 
+    @Override
+    public boolean setMapaDataDTO(MapaDataDTO mdd) {
+        String sql = "UPDATE epk_db.mapa " +
+                "SET surfaces = ?, elements = ? " +
+                "WHERE id = ?";
+        return false;
+    }
+
 
     public static void main(String[] args) {
         EditorDaoMySql dao = new EditorDaoMySql();

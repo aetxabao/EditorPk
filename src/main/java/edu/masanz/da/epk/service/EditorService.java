@@ -18,4 +18,8 @@ public class EditorService {
     public static MapaDataDTO getMapaDataDTO(long m) {
         return dao.getMapaDataDTO(m);
     }
+
+    public static boolean setMapaDataDTO(MapaDataDTO mdd) {
+        return dao.setMapaDataDTO(mdd);
+    }
 }

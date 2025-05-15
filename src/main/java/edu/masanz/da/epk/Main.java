@@ -16,6 +16,6 @@ public class Main {
 
         app.get("/", EditorController::iniciar);
         app.get("/seleccionar", EditorController::seleccionar);
-
+        app.post("/guardar", EditorController::guardar);
     }
 }

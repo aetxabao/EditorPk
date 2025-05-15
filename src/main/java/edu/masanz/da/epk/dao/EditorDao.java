@@ -9,4 +9,6 @@ public interface EditorDao {
     List<MapaDTO> getAllMapaDTOs();
 
     MapaDataDTO getMapaDataDTO(long m);
+
+    boolean setMapaDataDTO(MapaDataDTO mdd);
 }

@@ -1,5 +1,6 @@
 package edu.masanz.da.epk.controller;
 
+import edu.masanz.da.epk.dto.GuardarDTO;
 import edu.masanz.da.epk.dto.MapaDTO;
 import edu.masanz.da.epk.dto.MapaDataDTO;
 import edu.masanz.da.epk.service.EditorService;
@@ -34,5 +35,27 @@ public class EditorController {
         model.put("mapas", mapas);
         model.put("mapa", mapa);
         context.render("/templates/editor.ftl", model);
+    }
+
+    public static void guardar(@NotNull Context context) {
+        GuardarDTO dto = context.bodyAsClass(GuardarDTO.class);
+        long idMapa = dto.idMapa;
+        List<String> surfaces = dto.surfaces;
+        List<String> elements = dto.elements;
+        System.out.println("idMapa: " + idMapa);
+//        System.out.println("elements: " + elements);
+
+        MapaDataDTO mdd = EditorService.getMapaDataDTO(idMapa);
+        mdd.setSurfaces(String.join(" ", surfaces));
+        mdd.setElements(String.join(" ", elements));
+
+        if (mdd.getId() == 0) {
+            mdd.setId(idMapa);
+            //TODO: INSERT
+        }else{
+            //UPDATE
+            boolean b = EditorService.setMapaDataDTO(mdd);
+        }
+
     }
 }
