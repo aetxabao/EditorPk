@@ -50,12 +50,17 @@ public class EditorController {
         mdd.setElements(String.join(" ", elements));
 
         if (mdd.getId() == 0) {
-            mdd.setId(idMapa);
             //TODO: INSERT
+            mdd.setId(idMapa);//CUIDADO, NUEVO ID !!!!
         }else{
             //UPDATE
             boolean b = EditorService.setMapaDataDTO(mdd);
         }
 
+        List<MapaDTO> mapas = EditorService.getAllMapaDTOs();
+        Map<String, Object> model = new HashMap<>();
+        model.put("mapas", mapas);
+        model.put("mapa", mdd);
+        context.render("/templates/editor.ftl", model);
     }
 }

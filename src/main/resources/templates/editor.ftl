@@ -223,11 +223,14 @@
     function pintarCelda(celda) {
         const fila = parseInt(celda.dataset.fila);
         const columna = parseInt(celda.dataset.columna);
+        const pos = COLUMNAS*fila + columna;
         //console.log("fila: " + fila + ", columna: " + columna);
         if (isSuperficie) {
             celda.style.backgroundColor = colsSurfaces[idx];
+            surfaces[pos] = valsSurfaces[idx];
         }else{
             celda.style.backgroundImage = "url('/img/" + imgsElements[idx] + "')";
+            elements[pos] = valsElements[idx];
         }
     }
 

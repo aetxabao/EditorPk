@@ -74,6 +74,17 @@ public class EditorDaoMySql implements EditorDao {
         String sql = "UPDATE epk_db.mapa " +
                 "SET surfaces = ?, elements = ? " +
                 "WHERE id = ?";
+        if (DbCon.isConnected()) {
+            try (PreparedStatement pst = DbCon.getConnection().prepareStatement(sql)) {
+                pst.setString(1, mdd.getSurfaces());
+                pst.setString(2, mdd.getElements());
+                pst.setLong(3, mdd.getId());
+                int affectedRows = pst.executeUpdate();
+                return affectedRows > 0;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         return false;
     }
 
