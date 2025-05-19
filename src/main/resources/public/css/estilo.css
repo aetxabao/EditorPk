@@ -188,3 +188,6 @@ select {
 .btn-lg {
     width: 100%;
 }
+.btn-md {
+    width: 49%;
+}

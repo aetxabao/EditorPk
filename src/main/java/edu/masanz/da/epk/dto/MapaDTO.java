@@ -1,9 +1,9 @@
 package edu.masanz.da.epk.dto;
 
+import edu.masanz.da.epk.Main;
+
 import java.io.Serializable;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class MapaDTO implements Comparable<MapaDTO>, Serializable {
 
@@ -90,5 +90,105 @@ public class MapaDTO implements Comparable<MapaDTO>, Serializable {
 //        }
 //
 //    }
+//
+//    public static void main(String[] args) {
+//        List<MapaDTO> lista = new ArrayList<MapaDTO>();
+//
+//        lista.add(new MapaDTO(1, 2, "Uno"));
+//        lista.add(new MapaDTO(2, 4, "Dos"));
+//        lista.add(new MapaDTO(3, 5, "Tres"));
+//
+//
+//        long idMapaOrdenarAntes = 3;
+//
+//        for (int i = 0; i < lista.size(); i++) {
+//            MapaDTO actual = lista.get(i);
+//            if (actual.getId() == idMapaOrdenarAntes) {
+//                if (i > 0) {
+//                    MapaDTO temp = lista.get(i);
+//                    MapaDTO anterior = lista.get(i - 1);
+//                    lista.set(i, anterior);
+//                    lista.set(i-1, temp);
+//                }
+//                break;
+//            }
+//        }
+//
+//        for (MapaDTO mapaDTO : lista) {
+//            System.out.println(mapaDTO.nombre);
+//        }
+//
+//    }
 
+
+//    public static void main(String[] args) {
+//        List<MapaDTO> lista = new ArrayList<MapaDTO>();
+//
+//        lista.add(new MapaDTO(1, 1, "Uno"));
+//        lista.add(new MapaDTO(2, 2, "Dos"));
+//        lista.add(new MapaDTO(3, 3, "Tres"));
+//        lista.add(new MapaDTO(4, 4, "Cuatro"));
+//
+//        lista.add(new MapaDTO(6, 6, "Seis"));
+//
+//
+//        long idMapaOrdenarAntes = 4;
+//
+//        // reordenar la lista
+//        for (int i = 0; i < lista.size(); i++) {
+//            MapaDTO actual = lista.get(i);
+//            if (actual.getId() == idMapaOrdenarAntes) {
+//                if (i > 0) {
+//                    MapaDTO temp = lista.get(i);
+//                    MapaDTO anterior = lista.get(i - 1);
+//                    lista.set(i, anterior);
+//                    lista.set(i-1, temp);
+//                }
+//                break;
+//            }
+//        }
+//
+//        //actualizar campo orden de los elementos
+//        for (int i = 0; i < lista.size(); i++) {
+//            lista.get(i).orden = i+1;
+//        }
+//
+//        for (MapaDTO mapaDTO : lista) {
+//            System.out.println(mapaDTO);
+//        }
+//
+//    }
+
+    public static void main(String[] args) {
+        List<MapaDTO> lista = new ArrayList<MapaDTO>();
+
+        lista.add(new MapaDTO(1, 1, "Uno"));
+        lista.add(new MapaDTO(2, 2, "Dos"));
+        lista.add(new MapaDTO(3, 3, "Tres"));
+        lista.add(new MapaDTO(4, 4, "Cuatro"));
+
+        lista.add(new MapaDTO(6, 6, "Seis"));
+
+
+        long idMapaOrdenarAntes = 4;
+
+        // reordenar la lista
+        for (int i = 0; i < lista.size(); i++) {
+            MapaDTO actual = lista.get(i);
+            if (actual.getId() == idMapaOrdenarAntes) {
+                if (i > 0) {
+                    int ordenTemp = lista.get(i).getOrden();
+                    MapaDTO anterior = lista.get(i - 1);
+                    lista.get(i).setOrden(anterior.getOrden());
+                    lista.get(i-1).setOrden(ordenTemp);
+                }
+                break;
+            }
+        }
+
+        for (MapaDTO mapaDTO : lista) {
+            System.out.println(mapaDTO);
+        }
+
+    }
 }

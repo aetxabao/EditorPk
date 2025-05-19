@@ -68,7 +68,7 @@
         <h2>Acciones</h2>
         <form id="formulario">
             <input type="hidden" id="idMapa" name="idMapa" value="${mapa.id}">
-            <select id="nivel" name="nivel" size="10">
+            <select id="nivel" name="nivel" size="8">
                 <#list mapas as map>
                     <option value="${map.id}">${map.nombre}</option>
                 </#list>
@@ -80,7 +80,11 @@
                 <button class="btn btn-lg" type="button" id="borrar">Borrar</button>
             </div>
             <div class="barra-horizontal">
-                <button class="btn btn-lg" type="button" id="cargar">Cargar</button>
+                <button class="btn btn-lg" type="button" id="renombrar">Renombrar</button>
+            </div>
+            <div class="barra-horizontal">
+                <button class="btn btn-md" type="button" id="menosuno">Orden -1</button>
+                <button class="btn btn-md" type="button" id="masuno">Orden +1</button>
             </div>
             <div class="barra-horizontal">
                 <button class="btn btn-lg" type="button" id="guardar">Guardar</button>
